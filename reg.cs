@@ -25,33 +25,38 @@ namespace test_DataBase
             if (lblcaptcha.Text == textBox_captcha.Text)
             {
                 if (checkUser())
-
                 {
                     return;
                 }
 
-                int employee_id = Convert.ToInt32(textBox_id_employee.Text);
+                int employee_id = Convert.ToInt32(comboBox1.Text);
                 var loginUs = textBox_login2.Text;
                 var passwordUs = textBox_password2.Text;
-
-                string querystring = $"insert into users(id_employee, login, password) values ({employee_id},'{loginUs}', '{passwordUs}')";
-
-                SqlCommand command = new SqlCommand(querystring, dB_Connection.GetConnection());
-
-                dB_Connection.openConnection();
-
-                if (command.ExecuteNonQuery() == 1)
+                if (loginUs != "" && passwordUs != "")
                 {
-                    MessageBox.Show("Вы успешно создали аккаунт!", "Регистрация");
-                    auth frm_auth = new auth();
-                    this.Hide();
-                    frm_auth.ShowDialog();
+                    string querystring = $"insert into users(id_employee, login, password) values ({employee_id},'{loginUs}', '{passwordUs}')";
+
+                    SqlCommand command = new SqlCommand(querystring, dB_Connection.GetConnection());
+
+                    dB_Connection.openConnection();
+
+                    if (command.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Вы успешно создали аккаунт!", "Регистрация");
+                        auth frm_auth = new auth();
+                        this.Hide();
+                        frm_auth.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Произошла ошибка регистрации! Аккаунт уже существует.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    dB_Connection.closeConnection();
                 }
                 else
                 {
-                    MessageBox.Show("Произошла ошибка регистрации! Такой аккаунт уже существует.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Заполните все поля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                dB_Connection.closeConnection();
             }
             else
             {
@@ -62,7 +67,7 @@ namespace test_DataBase
 
         private Boolean checkUser()
         {
-            int id_employee = Convert.ToInt32(textBox_id_employee.Text);
+            int id_employee = Convert.ToInt32(comboBox1.Text);
             var loginUser = textBox_login2.Text;
             var PassUser = textBox_password2.Text;
             
@@ -103,9 +108,9 @@ namespace test_DataBase
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            textBox_id_employee.Text = "";
             textBox_login2.Text = "";
             textBox_password2.Text = "";
+            textBox_captcha.Text = "";
         }
 
         private void reg_Load(object sender, EventArgs e)
@@ -114,6 +119,7 @@ namespace test_DataBase
             pictureBox2.Visible = false;
             textBox_login2.MaxLength = 50;
             textBox_password2.MaxLength = 50;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 
             Random rand = new Random();
             int num = rand.Next(6, 8);
@@ -133,6 +139,17 @@ namespace test_DataBase
                 }
             } while (true);
             lblcaptcha.Text = captcha;
+
+            string querystring1 = "select Employee.id from Employee where not exists (select 1 from Users where Users.ID_employee = Employee.id);";
+            SqlCommand command = new SqlCommand(querystring1, dB_Connection.GetConnection());
+            dB_Connection.openConnection();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+
+                comboBox1.Items.Add(reader[0].ToString());
+            }
+            reader.Close();
         }
     }
 }

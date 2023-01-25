@@ -68,7 +68,7 @@ namespace test_DataBase
         {
             reg form_reg = new reg();
             form_reg.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)

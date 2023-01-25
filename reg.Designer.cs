@@ -40,12 +40,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_password2 = new System.Windows.Forms.TextBox();
             this.textBox_login2 = new System.Windows.Forms.TextBox();
-            this.textBox_id_employee = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblcaptcha = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox_captcha = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -165,14 +165,6 @@
             this.textBox_login2.Size = new System.Drawing.Size(187, 17);
             this.textBox_login2.TabIndex = 10;
             // 
-            // textBox_id_employee
-            // 
-            this.textBox_id_employee.Location = new System.Drawing.Point(303, 115);
-            this.textBox_id_employee.Multiline = true;
-            this.textBox_id_employee.Name = "textBox_id_employee";
-            this.textBox_id_employee.Size = new System.Drawing.Size(187, 19);
-            this.textBox_id_employee.TabIndex = 19;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -221,16 +213,24 @@
             this.panel2.Size = new System.Drawing.Size(187, 49);
             this.panel2.TabIndex = 24;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(303, 114);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(187, 21);
+            this.comboBox1.TabIndex = 26;
+            // 
             // reg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox_captcha);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox_id_employee);
             this.Controls.Add(this.cr_acc_bth);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -269,11 +269,11 @@
         private System.Windows.Forms.TextBox textBox_password2;
         private System.Windows.Forms.TextBox textBox_login2;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox textBox_id_employee;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblcaptcha;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox_captcha;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
