@@ -13,6 +13,8 @@ namespace test_DataBase
 {
     public partial class reg : Form
     {
+        Timer timer1 = new Timer();
+        int i = 0;
         DB_connection dB_Connection = new DB_connection();
         public reg()
         {
@@ -21,7 +23,14 @@ namespace test_DataBase
         }
 
         private void cr_acc_bth_Click(object sender, EventArgs e)
-        {   
+        {
+            i++;
+            if (i >= 4)
+            {
+                MessageBox.Show("Превышено попыток входа, попробуйте ещё раз через 10 секунд.", "Ошибка", MessageBoxButtons.OK);
+                cr_acc_bth.Enabled = false;
+                timer1.Start();
+            }
             if (lblcaptcha.Text == textBox_captcha.Text)
             {
                 if (checkUser())
@@ -64,7 +73,12 @@ namespace test_DataBase
                 this.OnLoad(e);
             }
         }
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            cr_acc_bth.Enabled = true;
+            i = 0;
+            timer1.Stop();
+        }
         private Boolean checkUser()
         {
             int id_employee = Convert.ToInt32(comboBox1.Text);
@@ -115,6 +129,9 @@ namespace test_DataBase
 
         private void reg_Load(object sender, EventArgs e)
         {
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 10000;
+
             textBox_password2.PasswordChar = '*';
             pictureBox2.Visible = false;
             textBox_login2.MaxLength = 50;

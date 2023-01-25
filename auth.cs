@@ -14,6 +14,8 @@ namespace test_DataBase
 {
     public partial class auth : Form
     {
+        Timer timer1 = new Timer();
+        int i = 0;
         DB_connection db_Connection = new DB_connection();
         public auth()
         {
@@ -29,14 +31,29 @@ namespace test_DataBase
 
         private void auth_Load(object sender, EventArgs e)
         {
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 10000;
+
             textBox_password.PasswordChar = '*';
             pictureBox2.Visible = false;
             textBox_login.MaxLength= 20;
             textBox_password.MaxLength= 30;
         }
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+            i = 0;
+            timer1.Stop();
+        }
         private void button1_Click(object sender, EventArgs e)
-        { 
+        {
+            i++;
+            if (i >= 4)
+            {
+                MessageBox.Show("Превышено попыток входа, попробуйте ещё раз через 10 секунд.", "Ошибка", MessageBoxButtons.OK);
+                button1.Enabled = false;
+                timer1.Start();
+            }
             var loginUser = textBox_login.Text;
             var passwordUser = textBox_password.Text;
 
@@ -68,7 +85,7 @@ namespace test_DataBase
         {
             reg form_reg = new reg();
             form_reg.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
