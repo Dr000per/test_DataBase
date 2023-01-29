@@ -13,6 +13,7 @@ namespace test_DataBase
 {
     public partial class reg : Form
     {
+        int employee_id = 0;
         Timer timer1 = new Timer();
         int i = 0;
         DB_connection dB_Connection = new DB_connection();
@@ -27,7 +28,7 @@ namespace test_DataBase
             i++;
             if (i >= 4)
             {
-                MessageBox.Show("Превышено попыток входа, попробуйте ещё раз через 10 секунд.", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Превышено попыток входа, попробуйте ещё раз через 10 секунд.", "Ошибка", MessageBoxButtons.OK);                    // Блокировка кнопки
                 cr_acc_bth.Enabled = false;
                 timer1.Start();
             }
@@ -38,15 +39,30 @@ namespace test_DataBase
                     return;
                 }
 
-                int employee_id = Convert.ToInt32(comboBox1.Text);
+                
                 var loginUs = textBox_login2.Text;
                 var passwordUs = textBox_password2.Text;
+                string employee_email = comboBox1.Text;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                string querystring2 = $"select Employee.id from employee where email = '{employee_email}';";
+                SqlCommand command1 = new SqlCommand(querystring2, dB_Connection.GetConnection());
+                adapter.SelectCommand = command1;                                                                                       // Поиск ID_employee по Email
+                dB_Connection.openConnection();
+                SqlDataReader reader = command1.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    employee_id = int.Parse(reader[0].ToString());
+                }
+                reader.Close();
+
                 if (loginUs != "" && passwordUs != "")
                 {
                     string querystring = $"insert into users(id_employee, login, password) values ({employee_id},'{loginUs}', '{passwordUs}')";
 
                     SqlCommand command = new SqlCommand(querystring, dB_Connection.GetConnection());
-
+                                                                                                                                                            // Внесение данных о новом аккаунте
                     dB_Connection.openConnection();
 
                     if (command.ExecuteNonQuery() == 1)
@@ -71,6 +87,7 @@ namespace test_DataBase
             {
                 MessageBox.Show("Введена неверная каптча! Попробуйте ещё раз.");
                 this.OnLoad(e);
+                textBox_captcha.Text = "";
             }
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -79,16 +96,29 @@ namespace test_DataBase
             i = 0;
             timer1.Stop();
         }
+        
         private Boolean checkUser()
         {
-            int id_employee = Convert.ToInt32(comboBox1.Text);
+            string employee_email = comboBox1.Text;
             var loginUser = textBox_login2.Text;
             var PassUser = textBox_password2.Text;
             
             SqlDataAdapter adapter= new SqlDataAdapter();
             DataTable table= new DataTable();
 
-            string querystring = $"select * from users where id_employee = {id_employee} or login = '{loginUser}' and password = '{PassUser}'";
+            string querystring2 = $"select Employee.id from employee where email = '{employee_email}';";
+            SqlCommand command1 = new SqlCommand(querystring2, dB_Connection.GetConnection());
+            adapter.SelectCommand = command1;                                                                               // Поиск ID_employee по Email
+            dB_Connection.openConnection();
+            SqlDataReader reader = command1.ExecuteReader();
+            while (reader.Read())
+            {
+
+               employee_id = int.Parse(reader[0].ToString());
+            }
+            reader.Close();
+
+            string querystring = $"select * from users where id_employee = {employee_id} or login = '{loginUser}' and password = '{PassUser}'";
             SqlCommand command = new SqlCommand(querystring, dB_Connection.GetConnection());
 
             adapter.SelectCommand= command;
@@ -103,7 +133,6 @@ namespace test_DataBase
             {
                 return false;
             }
-
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -139,7 +168,7 @@ namespace test_DataBase
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 
             Random rand = new Random();
-            int num = rand.Next(6, 8);
+            int num = rand.Next(4, 6);
             string captcha = "";
             int totl = 0;
             do
@@ -157,13 +186,12 @@ namespace test_DataBase
             } while (true);
             lblcaptcha.Text = captcha;
 
-            string querystring1 = "select Employee.id from Employee where not exists (select 1 from Users where Users.ID_employee = Employee.id);";
+            string querystring1 = "select Employee.email from Employee where not exists (select 1 from Users where Users.ID_employee = Employee.id);";
             SqlCommand command = new SqlCommand(querystring1, dB_Connection.GetConnection());
             dB_Connection.openConnection();
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-
                 comboBox1.Items.Add(reader[0].ToString());
             }
             reader.Close();

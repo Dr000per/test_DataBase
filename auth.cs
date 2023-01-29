@@ -47,6 +47,7 @@ namespace test_DataBase
         }
         private void button1_Click(object sender, EventArgs e)
         {
+
             i++;
             if (i >= 4)
             {
@@ -70,9 +71,9 @@ namespace test_DataBase
             if (table.Rows.Count == 1 )
             {
                 MessageBox.Show("Вход выполнен успешно!", "Вход", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Form form1 = new Form1();
+                worksheet wrksheet = new worksheet();
                 this.Hide();
-                form1.ShowDialog();
+                wrksheet.ShowDialog();
                 this.Show();
             }
             else 

@@ -124,7 +124,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(82, 78);
+            this.pictureBox1.Size = new System.Drawing.Size(109, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
@@ -169,11 +169,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Noto Sans Georgian", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(121, 107);
+            this.label4.Location = new System.Drawing.Point(106, 114);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(176, 28);
+            this.label4.Size = new System.Drawing.Size(191, 28);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Код сотрудника:";
+            this.label4.Text = "Email сотрудника:";
             // 
             // lblcaptcha
             // 
@@ -216,7 +216,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(303, 114);
+            this.comboBox1.Location = new System.Drawing.Point(303, 121);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(187, 21);
             this.comboBox1.TabIndex = 26;

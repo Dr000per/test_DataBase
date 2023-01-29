@@ -15,7 +15,7 @@ namespace test_DataBase
         {
             if(sqlConnection.State == System.Data.ConnectionState.Closed)
             {
-            sqlConnection.Open();
+                sqlConnection.Open();
             }
         }
 
