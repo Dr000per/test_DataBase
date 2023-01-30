@@ -34,5 +34,36 @@ namespace test_DataBase
 
 
         }
+
+        private void button_search_Click(object sender, EventArgs e)
+        {
+            if (textBox_search.Text != "") 
+            {
+                string value = textBox_search.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable table = new DataTable();
+                string querystring = $"select post.name as Должность, users.login as Логин, users.password as Пароль from users, employee, post where users.id_employee = employee.id and employee.id_post = post.id and (login = '{value}' or password = '{value}');";
+
+                SqlCommand command = new SqlCommand(querystring, db_Connection.GetConnection());
+
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+
+                dataGridView_Users.DataSource = table;
+            }
+            else
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable table = new DataTable();
+                string querystring = $"select post.name as Должность, users.login as Логин, users.password as Пароль from users, employee, post where users.id_employee = employee.id and employee.id_post = post.id;";
+
+                SqlCommand command = new SqlCommand(querystring, db_Connection.GetConnection());
+
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+
+                dataGridView_Users.DataSource = table;
+            }
+        }
     }
 }

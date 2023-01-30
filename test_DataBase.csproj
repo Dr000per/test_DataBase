@@ -53,6 +53,12 @@
       <DependentUpon>auth.cs</DependentUpon>
     </Compile>
     <Compile Include="DB_connection.cs" />
+    <Compile Include="empl_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="empl_table.Designer.cs">
+      <DependentUpon>empl_table.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_table.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </Compile>
     <EmbeddedResource Include="auth.resx">
       <DependentUpon>auth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="empl_table.resx">
+      <DependentUpon>empl_table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_table.resx">
       <DependentUpon>User_table.cs</DependentUpon>

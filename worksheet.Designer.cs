@@ -70,6 +70,7 @@
             // 
             // treeView1
             // 
+            this.treeView1.BackColor = System.Drawing.SystemColors.Control;
             this.treeView1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeView1.ImageIndex = 0;
             this.treeView1.ImageList = this.imageList1;
@@ -176,6 +177,7 @@
             this.main_pnl.Name = "main_pnl";
             this.main_pnl.Size = new System.Drawing.Size(677, 625);
             this.main_pnl.TabIndex = 4;
+            this.main_pnl.Paint += new System.Windows.Forms.PaintEventHandler(this.main_pnl_Paint);
             // 
             // worksheet
             // 
@@ -186,6 +188,7 @@
             this.Controls.Add(this.treeView1);
             this.Name = "worksheet";
             this.Text = "worksheet";
+            this.Load += new System.EventHandler(this.worksheet_Load);
             this.ResumeLayout(false);
 
         }
