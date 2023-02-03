@@ -33,6 +33,8 @@
             this.dataGridView_empl = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.button_insert = new System.Windows.Forms.Button();
+            this.button_upd = new System.Windows.Forms.Button();
+            this.button_del = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_empl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,18 +75,40 @@
             // 
             // button_insert
             // 
-            this.button_insert.Location = new System.Drawing.Point(475, 87);
+            this.button_insert.Location = new System.Drawing.Point(471, 21);
             this.button_insert.Name = "button_insert";
             this.button_insert.Size = new System.Drawing.Size(100, 27);
             this.button_insert.TabIndex = 8;
             this.button_insert.Text = "Добавить";
             this.button_insert.UseVisualStyleBackColor = true;
+            this.button_insert.Click += new System.EventHandler(this.button_insert_Click);
+            // 
+            // button_upd
+            // 
+            this.button_upd.Location = new System.Drawing.Point(471, 54);
+            this.button_upd.Name = "button_upd";
+            this.button_upd.Size = new System.Drawing.Size(100, 27);
+            this.button_upd.TabIndex = 9;
+            this.button_upd.Text = "Изменить";
+            this.button_upd.UseVisualStyleBackColor = true;
+            this.button_upd.Click += new System.EventHandler(this.button_upd_Click);
+            // 
+            // button_del
+            // 
+            this.button_del.Location = new System.Drawing.Point(471, 87);
+            this.button_del.Name = "button_del";
+            this.button_del.Size = new System.Drawing.Size(100, 27);
+            this.button_del.TabIndex = 10;
+            this.button_del.Text = "Удалить";
+            this.button_del.UseVisualStyleBackColor = true;
             // 
             // empl_table
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_del);
+            this.Controls.Add(this.button_upd);
             this.Controls.Add(this.button_insert);
             this.Controls.Add(this.button_search);
             this.Controls.Add(this.textBox_search);
@@ -106,5 +130,7 @@
         private System.Windows.Forms.DataGridView dataGridView_empl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_insert;
+        private System.Windows.Forms.Button button_upd;
+        private System.Windows.Forms.Button button_del;
     }
 }

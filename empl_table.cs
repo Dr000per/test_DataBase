@@ -58,10 +58,26 @@ namespace test_DataBase
                 SqlCommand command = new SqlCommand(querystring, db_Connection.GetConnection());
 
                 adapter.SelectCommand = command;
-                adapter.Fill(table);
-
-                dataGridView_empl.DataSource = table;
+                adapter.Fill(table);                                          
+                                                                              
+                dataGridView_empl.DataSource = table;                         
             }
+        }
+
+        private void button_insert_Click(object sender, EventArgs e)
+        {
+            empl_add add_empl = new empl_add();
+            this.Close();
+            add_empl.Show();
+            this.Show();
+        }
+
+        private void button_upd_Click(object sender, EventArgs e)
+        {
+            empl_update upd_empl = new empl_update();
+            this.Close();
+            upd_empl.Show();
+            this.Show();
         }
     }
 }

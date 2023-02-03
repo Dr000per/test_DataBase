@@ -93,7 +93,7 @@ namespace test_DataBase
         private void timer1_Tick(object sender, EventArgs e)
         {
             cr_acc_bth.Enabled = true;
-            i = 0;
+            i = 0;                                                                                                                      // Разблокировка кнопки
             timer1.Stop();
         }
         
@@ -118,7 +118,7 @@ namespace test_DataBase
             }
             reader.Close();
 
-            string querystring = $"select * from users where id_employee = {employee_id} or login = '{loginUser}' and password = '{PassUser}'";
+            string querystring = $"select * from users where id_employee = {employee_id} or login = '{loginUser}' and password = '{PassUser}'";                 // Проверка на совпадение с уже имеющимися данными
             SqlCommand command = new SqlCommand(querystring, dB_Connection.GetConnection());
 
             adapter.SelectCommand= command;
