@@ -55,6 +55,15 @@ namespace test_DataBase
                 case "Сотрудники":
                     PanelForm(new empl_table());
                     break;
+
+                case "Должности":
+                    PanelForm(new Post_table());
+                    break;
+
+                case "Услуги":
+                    PanelForm(new vet_services_table());
+                    break;
+
             }
         }
     }

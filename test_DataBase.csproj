@@ -59,6 +59,12 @@
     <Compile Include="empl_add.Designer.cs">
       <DependentUpon>empl_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="empl_del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="empl_del.Designer.cs">
+      <DependentUpon>empl_del.cs</DependentUpon>
+    </Compile>
     <Compile Include="empl_table.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,30 @@
     </Compile>
     <Compile Include="empl_update.Designer.cs">
       <DependentUpon>empl_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services_add.Designer.cs">
+      <DependentUpon>Services_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Post_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Post_table.Designer.cs">
+      <DependentUpon>Post_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="services_del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="services_del.Designer.cs">
+      <DependentUpon>services_del.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services_upd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services_upd.Designer.cs">
+      <DependentUpon>Services_upd.cs</DependentUpon>
     </Compile>
     <Compile Include="User_table.cs">
       <SubType>Form</SubType>
@@ -85,6 +115,12 @@
     <Compile Include="reg.Designer.cs">
       <DependentUpon>reg.cs</DependentUpon>
     </Compile>
+    <Compile Include="vet_services_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vet_services_table.Designer.cs">
+      <DependentUpon>vet_services_table.cs</DependentUpon>
+    </Compile>
     <Compile Include="worksheet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,11 +133,26 @@
     <EmbeddedResource Include="empl_add.resx">
       <DependentUpon>empl_add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="empl_del.resx">
+      <DependentUpon>empl_del.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="empl_table.resx">
       <DependentUpon>empl_table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="empl_update.resx">
       <DependentUpon>empl_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services_add.resx">
+      <DependentUpon>Services_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Post_table.resx">
+      <DependentUpon>Post_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="services_del.resx">
+      <DependentUpon>services_del.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services_upd.resx">
+      <DependentUpon>Services_upd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_table.resx">
       <DependentUpon>User_table.cs</DependentUpon>
@@ -117,6 +168,9 @@
     </Compile>
     <EmbeddedResource Include="reg.resx">
       <DependentUpon>reg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vet_services_table.resx">
+      <DependentUpon>vet_services_table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="worksheet.resx">
       <DependentUpon>worksheet.cs</DependentUpon>

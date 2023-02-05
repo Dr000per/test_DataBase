@@ -57,11 +57,15 @@
             // 
             // dataGridView_empl
             // 
+            this.dataGridView_empl.AllowUserToAddRows = false;
+            this.dataGridView_empl.AllowUserToDeleteRows = false;
             this.dataGridView_empl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_empl.Location = new System.Drawing.Point(47, 117);
             this.dataGridView_empl.Name = "dataGridView_empl";
+            this.dataGridView_empl.ReadOnly = true;
             this.dataGridView_empl.Size = new System.Drawing.Size(668, 258);
             this.dataGridView_empl.TabIndex = 5;
+            this.dataGridView_empl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_empl_CellContentClick);
             // 
             // label1
             // 
@@ -101,6 +105,7 @@
             this.button_del.TabIndex = 10;
             this.button_del.Text = "Удалить";
             this.button_del.UseVisualStyleBackColor = true;
+            this.button_del.Click += new System.EventHandler(this.button_del_Click);
             // 
             // empl_table
             // 
@@ -115,7 +120,7 @@
             this.Controls.Add(this.dataGridView_empl);
             this.Controls.Add(this.label1);
             this.Name = "empl_table";
-            this.Text = "empl_table";
+            this.Text = "Данные о сотрудниках";
             this.Load += new System.EventHandler(this.empl_table_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_empl)).EndInit();
             this.ResumeLayout(false);

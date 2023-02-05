@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(empl_update));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.checkBox_email = new System.Windows.Forms.CheckBox();
             this.checkBox_phone = new System.Windows.Forms.CheckBox();
             this.checkBox_post = new System.Windows.Forms.CheckBox();
             this.comboBox_email = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button_cancel = new System.Windows.Forms.Button();
-            this.button_insert = new System.Windows.Forms.Button();
+            this.button_update = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox_post = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,18 +46,20 @@
             this.textBox_phone = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.checkBox_email);
             this.panel1.Controls.Add(this.checkBox_phone);
             this.panel1.Controls.Add(this.checkBox_post);
             this.panel1.Controls.Add(this.comboBox_email);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button_cancel);
-            this.panel1.Controls.Add(this.button_insert);
+            this.panel1.Controls.Add(this.button_update);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.comboBox_post);
             this.panel1.Controls.Add(this.label6);
@@ -67,6 +71,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(419, 258);
             this.panel1.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(362, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(44, 38);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // checkBox_email
             // 
@@ -123,15 +138,15 @@
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
-            // button_insert
+            // button_update
             // 
-            this.button_insert.Location = new System.Drawing.Point(208, 180);
-            this.button_insert.Name = "button_insert";
-            this.button_insert.Size = new System.Drawing.Size(178, 24);
-            this.button_insert.TabIndex = 14;
-            this.button_insert.Text = "Обновить";
-            this.button_insert.UseVisualStyleBackColor = true;
-            this.button_insert.Click += new System.EventHandler(this.button_insert_Click);
+            this.button_update.Location = new System.Drawing.Point(208, 180);
+            this.button_update.Name = "button_update";
+            this.button_update.Size = new System.Drawing.Size(178, 24);
+            this.button_update.TabIndex = 14;
+            this.button_update.Text = "Обновить";
+            this.button_update.UseVisualStyleBackColor = true;
+            this.button_update.Click += new System.EventHandler(this.button_insert_Click);
             // 
             // label7
             // 
@@ -184,6 +199,7 @@
             this.textBox_phone.Name = "textBox_phone";
             this.textBox_phone.Size = new System.Drawing.Size(178, 20);
             this.textBox_phone.TabIndex = 8;
+            this.textBox_phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_phone_KeyPress);
             // 
             // label1
             // 
@@ -203,10 +219,11 @@
             this.Controls.Add(this.panel1);
             this.Name = "empl_update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "empl_update";
+            this.Text = "Изменение сотрудников";
             this.Load += new System.EventHandler(this.empl_update_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,7 +232,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button_cancel;
-        private System.Windows.Forms.Button button_insert;
+        private System.Windows.Forms.Button button_update;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox_post;
         private System.Windows.Forms.Label label6;
@@ -228,5 +245,6 @@
         private System.Windows.Forms.CheckBox checkBox_email;
         private System.Windows.Forms.CheckBox checkBox_phone;
         private System.Windows.Forms.CheckBox checkBox_post;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

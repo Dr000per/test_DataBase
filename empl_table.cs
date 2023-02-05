@@ -67,7 +67,6 @@ namespace test_DataBase
         private void button_insert_Click(object sender, EventArgs e)
         {
             empl_add add_empl = new empl_add();
-            this.Close();
             add_empl.Show();
             this.Show();
         }
@@ -75,9 +74,20 @@ namespace test_DataBase
         private void button_upd_Click(object sender, EventArgs e)
         {
             empl_update upd_empl = new empl_update();
-            this.Close();
             upd_empl.Show();
             this.Show();
+        }
+
+        private void button_del_Click(object sender, EventArgs e)
+        {
+            empl_del del_empl = new empl_del();
+            del_empl.Show();
+            this.Show();
+        }
+
+        private void dataGridView_empl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

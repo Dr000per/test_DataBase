@@ -84,5 +84,15 @@ namespace test_DataBase
             this.Close();
                  
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            comboBox_post.Text = null;
+            textBox_email.Text = null;
+            textBox_fname.Text = null;
+            textBox_midname.Text = null;
+            textBox_phone.Text = null;
+            textBox_surname.Text = null;
+        }
     }
 }

@@ -56,7 +56,6 @@ namespace test_DataBase
         {
             string empl_email_now = comboBox_email.Text;
 
-
             object querystr = $"select * from employee where Email = '{empl_email_now}';";
             SqlCommand comm = new SqlCommand((string)querystr, db_Connection.GetConnection());
             SqlDataReader read = comm.ExecuteReader();
@@ -70,14 +69,10 @@ namespace test_DataBase
             object NewPhone = empl_phone_now;
             object post_id = id_post;
 
-
-
             if (checkBox_post.Checked) 
             {
-                SqlDataAdapter adapter = new SqlDataAdapter();
                 string querystring1 = $"select id from post where name = '{empl_post}';";
-                SqlCommand command1 = new SqlCommand(querystring1, db_Connection.GetConnection());
-                adapter.SelectCommand = command1;                                                                               // Поиск ID по Post.name
+                SqlCommand command1 = new SqlCommand(querystring1, db_Connection.GetConnection());                                                        // Поиск ID по Post.name и проверка чекбокса с должностью
                 db_Connection.openConnection();
                 SqlDataReader reader = command1.ExecuteReader();
                 while (reader.Read())
@@ -88,11 +83,11 @@ namespace test_DataBase
             }
             if (checkBox_email.Checked)
             {
-                NewEmail = textBox_email.Text;
+                NewEmail = textBox_email.Text;                                                                                                                             // Проверка чекбокса с Email
             }
             if (checkBox_phone.Checked)
             {
-                NewPhone = textBox_phone.Text;
+                NewPhone = textBox_phone.Text;                                                                                                                             // Проверка чекбокса с Телефоном
             }
 
             string zaprosUpd = $"update Employee set id_post = {post_id}, phone = '{NewPhone}', email = '{NewEmail}' where Email = '{empl_email_now}';";
@@ -100,6 +95,24 @@ namespace test_DataBase
             commanda.ExecuteNonQuery();
 
             MessageBox.Show("Вы изменили данные!", "Оповещение");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            comboBox_email.Text = null;
+            comboBox_post.Text = null;
+            textBox_email.Text = null;
+            textBox_phone.Text = null;
+        }
+
+        private void textBox_phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 43)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

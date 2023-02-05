@@ -191,7 +191,7 @@
             this.Controls.Add(this.textBox_password);
             this.Controls.Add(this.textBox_login);
             this.Name = "auth";
-            this.Text = "auth";
+            this.Text = "Авторизация";
             this.Load += new System.EventHandler(this.auth_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

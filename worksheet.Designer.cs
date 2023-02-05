@@ -190,7 +190,7 @@
             this.Controls.Add(this.main_pnl);
             this.Controls.Add(this.treeView1);
             this.Name = "worksheet";
-            this.Text = "worksheet";
+            this.Text = "Основное окно программы";
             this.Load += new System.EventHandler(this.worksheet_Load);
             this.ResumeLayout(false);
 

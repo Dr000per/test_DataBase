@@ -47,9 +47,12 @@
             // 
             // dataGridView_Users
             // 
+            this.dataGridView_Users.AllowUserToAddRows = false;
+            this.dataGridView_Users.AllowUserToDeleteRows = false;
             this.dataGridView_Users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Users.Location = new System.Drawing.Point(43, 122);
             this.dataGridView_Users.Name = "dataGridView_Users";
+            this.dataGridView_Users.ReadOnly = true;
             this.dataGridView_Users.Size = new System.Drawing.Size(437, 257);
             this.dataGridView_Users.TabIndex = 1;
             // 
@@ -81,7 +84,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Users_table";
-            this.Text = "Form1";
+            this.Text = "Пользователи";
             this.Load += new System.EventHandler(this.User_table_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Users)).EndInit();
             this.ResumeLayout(false);
