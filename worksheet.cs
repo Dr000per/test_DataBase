@@ -20,10 +20,10 @@ namespace test_DataBase
 
         private void main_pnl_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
-        private void PanelForm (Form frm)
+        private void PanelForm(Form frm)
         {
             if (active != null)
             {
@@ -41,7 +41,9 @@ namespace test_DataBase
 
         private void worksheet_Load(object sender, EventArgs e)
         {
-            PanelForm(new reg());
+            PanelForm(new auth());
+            treeView1.Enabled = false;
+            
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -68,3 +70,4 @@ namespace test_DataBase
         }
     }
 }
+

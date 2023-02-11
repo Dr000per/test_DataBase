@@ -45,6 +45,7 @@ namespace test_DataBase
             i = 0;
             timer1.Stop();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
 

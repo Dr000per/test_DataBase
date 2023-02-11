@@ -40,13 +40,29 @@ namespace test_DataBase
 
         private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-
-            if (!char.IsDigit(ch) && ch != 8 && ch != 43)
-            {
-                e.Handled = true;
-            }
+            NumCheck num = new NumCheck();
+            num.checknum(e);
         }
+
+
+        public class NumCheck
+        {
+            public Boolean checknum(KeyPressEventArgs e)
+            {
+                char ch = e.KeyChar;
+
+                if (!char.IsDigit(ch) && ch != 8 && ch != 43)
+                {
+                    e.Handled = true;
+                }
+
+                return false;
+
+            }
+
+            
+        }
+        
 
         private void button_insert_Click(object sender, EventArgs e)
         {
@@ -75,14 +91,13 @@ namespace test_DataBase
             SqlCommand command1 = new SqlCommand(querystring1, db_Connection.GetConnection());
             MessageBox.Show("Новая запись добавлена.", "Добавление новой записи");
             adapter.SelectCommand = command1;
-            adapter.Fill(table);
-            
+            adapter.Fill(table);        
         }
 
         private void button_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
-                 
+          
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

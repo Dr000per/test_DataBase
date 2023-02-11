@@ -52,7 +52,6 @@ namespace test_DataBase
                 SqlDataReader reader = command1.ExecuteReader();
                 while (reader.Read())
                 {
-
                     employee_id = int.Parse(reader[0].ToString());
                 }
                 reader.Close();

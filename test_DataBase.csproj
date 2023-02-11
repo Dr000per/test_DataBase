@@ -53,6 +53,18 @@
       <DependentUpon>auth.cs</DependentUpon>
     </Compile>
     <Compile Include="DB_connection.cs" />
+    <Compile Include="disease_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="disease_table.Designer.cs">
+      <DependentUpon>disease_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dis_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dis_add.Designer.cs">
+      <DependentUpon>dis_add.cs</DependentUpon>
+    </Compile>
     <Compile Include="empl_add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +141,12 @@
     </Compile>
     <EmbeddedResource Include="auth.resx">
       <DependentUpon>auth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="disease_table.resx">
+      <DependentUpon>disease_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dis_add.resx">
+      <DependentUpon>dis_add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="empl_add.resx">
       <DependentUpon>empl_add.cs</DependentUpon>
