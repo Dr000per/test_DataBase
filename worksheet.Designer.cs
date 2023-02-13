@@ -198,7 +198,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TreeView treeView1;
+        public System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel main_pnl;
     }

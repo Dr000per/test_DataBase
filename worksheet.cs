@@ -39,7 +39,7 @@ namespace test_DataBase
             frm.Show();
         }
 
-        private void worksheet_Load(object sender, EventArgs e)
+        public void worksheet_Load(object sender, EventArgs e)
         {
             PanelForm(new auth());
             treeView1.Enabled = false;

@@ -73,7 +73,9 @@ namespace test_DataBase
 
         private void button_del_Click(object sender, EventArgs e)
         {
-
+            dis_del del_dis = new dis_del();
+            del_dis.Show();
+            this.Show();
         }
     }
 }

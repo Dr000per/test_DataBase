@@ -16,7 +16,7 @@ namespace test_DataBase
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new empl_table());
+            Application.Run(new worksheet());
         }
     }
 }

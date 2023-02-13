@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace test_DataBase
 {
@@ -74,7 +75,7 @@ namespace test_DataBase
                 MessageBox.Show("Вход выполнен успешно!", "Вход", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 worksheet wrksheet = new worksheet();
                 this.Hide();
-                wrksheet.ShowDialog();
+                wrksheet.treeView1.Enabled = true;
                 this.Show();
             }
             else 

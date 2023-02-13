@@ -41,27 +41,15 @@ namespace test_DataBase
         private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
         {
             NumCheck num = new NumCheck();
-            num.checknum(e);
-        }
-
-
-        public class NumCheck
-        {
-            public Boolean checknum(KeyPressEventArgs e)
+            if (num.checknum(e.KeyChar) || e.KeyChar == '+' || e.KeyChar == '\b')
             {
-                char ch = e.KeyChar;
-
-                if (!char.IsDigit(ch) && ch != 8 && ch != 43)
-                {
-                    e.Handled = true;
-                }
-
-                return false;
-
+                e.Handled = false;
             }
-
-            
-        }
+            else
+            {
+                e.Handled = true;
+            }
+        }        
         
 
         private void button_insert_Click(object sender, EventArgs e)
