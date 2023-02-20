@@ -58,7 +58,7 @@ namespace test_DataBase
 
                 if (loginUs != "" && passwordUs != "")
                 {
-                    string querystring = $"insert into users(id_employee, login, password) values ({employee_id},'{loginUs}', '{passwordUs}')";
+                    string querystring = $"insert into users(id_employee, id_role, login, password) values ({employee_id}, 5, '{loginUs}', '{passwordUs}')";
 
                     SqlCommand command = new SqlCommand(querystring, dB_Connection.GetConnection());
                                                                                                                                                             // Внесение данных о новом аккаунте

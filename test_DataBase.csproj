@@ -120,6 +120,12 @@
     <Compile Include="Services_upd.Designer.cs">
       <DependentUpon>Services_upd.cs</DependentUpon>
     </Compile>
+    <Compile Include="users_upd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="users_upd.Designer.cs">
+      <DependentUpon>users_upd.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_table.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Services_upd.resx">
       <DependentUpon>Services_upd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="users_upd.resx">
+      <DependentUpon>users_upd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_table.resx">
       <DependentUpon>User_table.cs</DependentUpon>

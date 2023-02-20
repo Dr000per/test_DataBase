@@ -23,7 +23,7 @@ namespace test_DataBase
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
-            string querystring = $"select post.name as Должность, users.login as Логин, users.password as Пароль from users, employee, post where users.id_employee = employee.id and employee.id_post = post.id;";
+            string querystring = $"select post.name as Должность, users.login as Логин, users.password as Пароль, roles.name as Роль from users, employee, post, roles where users.id_employee = employee.id and users.id_role = roles.id and employee.id_post = post.id;";
 
             SqlCommand command = new SqlCommand(querystring, db_Connection.GetConnection());
 
@@ -42,7 +42,7 @@ namespace test_DataBase
                 string value = textBox_search.Text;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 DataTable table = new DataTable();
-                string querystring = $"select post.name as Должность, users.login as Логин, users.password as Пароль from users, employee, post where users.id_employee = employee.id and employee.id_post = post.id and (login = '{value}' or password = '{value}');";
+                string querystring = $"select post.name as Должность, users.login as Логин, users.password as Пароль, roles.name as Роль from users, employee, post, roles where users.id_employee = employee.id and users.id_role = roles.id  and employee.id_post = post.id and (login = '{value}' or password = '{value}');";
 
                 SqlCommand command = new SqlCommand(querystring, db_Connection.GetConnection());
 
@@ -55,7 +55,7 @@ namespace test_DataBase
             {
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 DataTable table = new DataTable();
-                string querystring = $"select post.name as Должность, users.login as Логин, users.password as Пароль from users, employee, post where users.id_employee = employee.id and employee.id_post = post.id;";
+                string querystring = $"select post.name as Должность, users.login as Логин, users.password as Пароль, roles.name as Роль from users, employee, post, roles where users.id_employee = employee.id and users.id_role = roles.id and employee.id_post = post.id;";
 
                 SqlCommand command = new SqlCommand(querystring, db_Connection.GetConnection());
 
@@ -64,6 +64,13 @@ namespace test_DataBase
 
                 dataGridView_Users.DataSource = table;
             }
+        }
+
+        private void button_upd_Click(object sender, EventArgs e)
+        {
+            users_upd users_Upd= new users_upd();
+            users_Upd.Show();
+            this.Show();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace test_DataBase
         private void button1_Click(object sender, EventArgs e)
         {
             object name = comboBox1.Text;
-            DialogResult dr = MessageBox.Show("Вы уверены что хотите удалить данные об этом сотруднике?",
+            DialogResult dr = MessageBox.Show("Вы уверены что хотите удалить данные об этом диагнозе?",
                       "Подтверждение", MessageBoxButtons.YesNo);
             switch (dr)
             {

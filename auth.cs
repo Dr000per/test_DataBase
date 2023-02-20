@@ -15,15 +15,20 @@ namespace test_DataBase
 {
     public partial class auth : Form
     {
+        worksheet wrksheet;
         Timer timer1 = new Timer();
         int i = 0;
         DB_connection db_Connection = new DB_connection();
-        public auth()
+        public auth(worksheet owner)
         {
+            wrksheet= owner;
             InitializeComponent();
             StartPosition= FormStartPosition.CenterScreen;
         }
 
+        public auth()
+        {
+        }
 
         private void textBox_login_TextChanged(object sender, EventArgs e)
         {
@@ -73,10 +78,17 @@ namespace test_DataBase
             if (table.Rows.Count == 1 )
             {
                 MessageBox.Show("Вход выполнен успешно!", "Вход", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                worksheet wrksheet = new worksheet();
-                this.Hide();
+                this.Close();
                 wrksheet.treeView1.Enabled = true;
-                this.Show();
+                string querystring1 = $"select id_Role from users where login = '{loginUser}';";
+                SqlCommand command1 = new SqlCommand(querystring1, db_Connection.GetConnection());                                                        // Поиск ID по Post.name и проверка чекбокса с должностью
+                db_Connection.openConnection();
+                SqlDataReader reader = command1.ExecuteReader();
+                while (reader.Read())
+                {
+                    wrksheet.Userrole = int.Parse(reader[0].ToString());
+                }
+                reader.Close();
             }
             else 
             {

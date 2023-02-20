@@ -32,6 +32,7 @@
             this.dataGridView_Users = new System.Windows.Forms.DataGridView();
             this.textBox_search = new System.Windows.Forms.TextBox();
             this.button_search = new System.Windows.Forms.Button();
+            this.button_upd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Users)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,11 +74,22 @@
             this.button_search.UseVisualStyleBackColor = true;
             this.button_search.Click += new System.EventHandler(this.button_search_Click);
             // 
+            // button_upd
+            // 
+            this.button_upd.Location = new System.Drawing.Point(373, 55);
+            this.button_upd.Name = "button_upd";
+            this.button_upd.Size = new System.Drawing.Size(107, 27);
+            this.button_upd.TabIndex = 4;
+            this.button_upd.Text = "Обновить";
+            this.button_upd.UseVisualStyleBackColor = true;
+            this.button_upd.Click += new System.EventHandler(this.button_upd_Click);
+            // 
             // Users_table
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 399);
+            this.Controls.Add(this.button_upd);
             this.Controls.Add(this.button_search);
             this.Controls.Add(this.textBox_search);
             this.Controls.Add(this.dataGridView_Users);
@@ -98,5 +110,6 @@
         private System.Windows.Forms.DataGridView dataGridView_Users;
         private System.Windows.Forms.TextBox textBox_search;
         private System.Windows.Forms.Button button_search;
+        private System.Windows.Forms.Button button_upd;
     }
 }

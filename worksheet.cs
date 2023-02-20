@@ -18,6 +18,8 @@ namespace test_DataBase
             InitializeComponent();
         }
 
+        public int Userrole = 5;
+
         private void main_pnl_Paint(object sender, PaintEventArgs e)
         {
 
@@ -41,7 +43,8 @@ namespace test_DataBase
 
         public void worksheet_Load(object sender, EventArgs e)
         {
-            PanelForm(new auth());
+            this.Hide();
+            new auth(this).Show();
             treeView1.Enabled = false;
             
         }
@@ -51,19 +54,38 @@ namespace test_DataBase
             switch (e.Node.Text)
             {
                 case "Пользователи":
-                    PanelForm(new Users_table());
+                    if (Userrole == 1)
+                    {
+                        PanelForm(new Users_table());
+                    }
                     break;
 
                 case "Сотрудники":
-                    PanelForm(new empl_table());
+                    if (Userrole == 1 || Userrole == 2)
+                    {
+                        PanelForm(new empl_table());
+                    }
                     break;
 
                 case "Должности":
-                    PanelForm(new Post_table());
+                    if (Userrole == 1 || Userrole == 2)
+                    {
+                        PanelForm(new Post_table());
+                    }
                     break;
 
                 case "Услуги":
-                    PanelForm(new vet_services_table());
+                    if(Userrole == 1 || Userrole == 2)
+                    {
+                        PanelForm(new vet_services_table());
+                    }
+                    break;
+
+                case "Диагнозы":
+                    if (Userrole == 1 || Userrole == 2 || Userrole == 3)
+                    {
+                        PanelForm(new disease_table());
+                    }
                     break;
 
             }
