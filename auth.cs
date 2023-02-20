@@ -98,7 +98,7 @@ namespace test_DataBase
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            reg form_reg = new reg();
+            reg form_reg = new reg(this);
             form_reg.Show();
             this.Hide();
         }

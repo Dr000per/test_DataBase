@@ -13,14 +13,16 @@ namespace test_DataBase
 {
     public partial class reg : Form
     {
+        auth frm_auth;
         int employee_id = 0;
         Timer timer1 = new Timer();
         int i = 0;
         DB_connection dB_Connection = new DB_connection();
-        public reg()
+        public reg(auth auth)
         {
             InitializeComponent();
-            StartPosition= FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterScreen;
+            frm_auth = auth;
         }
 
         private void cr_acc_bth_Click(object sender, EventArgs e)
@@ -67,9 +69,8 @@ namespace test_DataBase
                     if (command.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Вы успешно создали аккаунт!", "Регистрация");
-                        auth frm_auth = new auth();
                         this.Hide();
-                        frm_auth.ShowDialog();
+                        frm_auth.Show();
                     }
                     else
                     {
