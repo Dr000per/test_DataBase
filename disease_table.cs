@@ -14,6 +14,7 @@ namespace test_DataBase
     public partial class disease_table : Form
     {
         DB_connection dB_Connection = new DB_connection();
+
         public disease_table()
         {
             InitializeComponent();

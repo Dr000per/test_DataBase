@@ -21,7 +21,7 @@ namespace test_DataBase
         DB_connection db_Connection = new DB_connection();
         public auth(worksheet owner)
         {
-            wrksheet= owner;
+            wrksheet = owner;
             InitializeComponent();
             StartPosition= FormStartPosition.CenterScreen;
         }

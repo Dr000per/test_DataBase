@@ -9,7 +9,7 @@ namespace test_DataBase
 {
     internal class DB_connection
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Server = db.edu.cchgeu.ru; DataBase = 193_Shelylin; User = 193_Shelylin; Password = 193_Shelylin");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-BBAJL13\SQLEXPRESS;Initial Catalog=vetklinika;Integrated Security=True");
 
         public void openConnection()
         {

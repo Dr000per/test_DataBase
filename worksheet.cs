@@ -88,6 +88,19 @@ namespace test_DataBase
                     }
                     break;
 
+                case "Животные":
+                    if (Userrole == 1 || Userrole == 2 || Userrole == 3 || Userrole == 4 || Userrole == 5)
+                    {
+                        PanelForm(new animal_table(this));
+                    }
+                    break;
+
+                case "Хозяева":
+                    if (Userrole == 1 || Userrole == 2 || Userrole == 4)
+                    {
+                        PanelForm(new pet_owner_table());
+                    }
+                    break;
             }
         }
     }

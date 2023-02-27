@@ -56,6 +56,7 @@
             this.dataGridView_Users.ReadOnly = true;
             this.dataGridView_Users.Size = new System.Drawing.Size(437, 257);
             this.dataGridView_Users.TabIndex = 1;
+            this.dataGridView_Users.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView_Users_CellFormatting);
             // 
             // textBox_search
             // 

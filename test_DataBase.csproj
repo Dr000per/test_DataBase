@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="animal_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="animal_table.Designer.cs">
+      <DependentUpon>animal_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="anim_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="anim_add.Designer.cs">
+      <DependentUpon>anim_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="anim_del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="anim_del.Designer.cs">
+      <DependentUpon>anim_del.cs</DependentUpon>
+    </Compile>
     <Compile Include="auth.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +114,30 @@
       <DependentUpon>empl_update.cs</DependentUpon>
     </Compile>
     <Compile Include="NumCheck.cs" />
+    <Compile Include="pet_owner_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pet_owner_table.Designer.cs">
+      <DependentUpon>pet_owner_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pet_own_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pet_own_add.Designer.cs">
+      <DependentUpon>pet_own_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pet_own_del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pet_own_del.Designer.cs">
+      <DependentUpon>pet_own_del.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pet_own_upd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pet_own_upd.Designer.cs">
+      <DependentUpon>pet_own_upd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services_add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +162,7 @@
     <Compile Include="Services_upd.Designer.cs">
       <DependentUpon>Services_upd.cs</DependentUpon>
     </Compile>
+    <Compile Include="StringCheck.cs" />
     <Compile Include="users_upd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +195,15 @@
     <Compile Include="worksheet.Designer.cs">
       <DependentUpon>worksheet.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="animal_table.resx">
+      <DependentUpon>animal_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="anim_add.resx">
+      <DependentUpon>anim_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="anim_del.resx">
+      <DependentUpon>anim_del.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="auth.resx">
       <DependentUpon>auth.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +227,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="empl_update.resx">
       <DependentUpon>empl_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pet_owner_table.resx">
+      <DependentUpon>pet_owner_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pet_own_add.resx">
+      <DependentUpon>pet_own_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pet_own_del.resx">
+      <DependentUpon>pet_own_del.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pet_own_upd.resx">
+      <DependentUpon>pet_own_upd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Services_add.resx">
       <DependentUpon>Services_add.cs</DependentUpon>

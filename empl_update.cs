@@ -52,51 +52,6 @@ namespace test_DataBase
             this.Close();
         }
 
-        private void button_insert_Click(object sender, EventArgs e)
-        {
-            string empl_email_now = comboBox_email.Text;
-
-            object querystr = $"select * from employee where Email = '{empl_email_now}';";
-            SqlCommand comm = new SqlCommand((string)querystr, db_Connection.GetConnection());
-            SqlDataReader read = comm.ExecuteReader();
-            read.Read();
-            object id_post = read.GetValue(1);
-            object empl_phone_now = read.GetValue(5);
-            read.Close();
-            
-            object empl_post = comboBox_post.Text;
-            object NewEmail = empl_email_now;
-            object NewPhone = empl_phone_now;
-            object post_id = id_post;
-
-            if (checkBox_post.Checked) 
-            {
-                string querystring1 = $"select id from post where name = '{empl_post}';";
-                SqlCommand command1 = new SqlCommand(querystring1, db_Connection.GetConnection());                                                        // Поиск ID по Post.name и проверка чекбокса с должностью
-                db_Connection.openConnection();
-                SqlDataReader reader = command1.ExecuteReader();
-                while (reader.Read())
-                { 
-                    post_id = int.Parse(reader[0].ToString());
-                }
-                reader.Close();
-            }
-            if (checkBox_email.Checked)
-            {
-                NewEmail = textBox_email.Text;                                                                                                                             // Проверка чекбокса с Email
-            }
-            if (checkBox_phone.Checked)
-            {
-                NewPhone = textBox_phone.Text;                                                                                                                             // Проверка чекбокса с Телефоном
-            }
-
-            string zaprosUpd = $"update Employee set id_post = {post_id}, phone = '{NewPhone}', email = '{NewEmail}' where Email = '{empl_email_now}';";
-            SqlCommand commanda = new SqlCommand(zaprosUpd, db_Connection.GetConnection());
-            commanda.ExecuteNonQuery();
-
-            MessageBox.Show("Вы изменили данные!", "Оповещение");
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             comboBox_email.Text = null;
@@ -113,6 +68,61 @@ namespace test_DataBase
             {
                 e.Handled = true;
             }
+        }
+
+        private void button_update_Click(object sender, EventArgs e)
+        {
+            string empl_email_now = comboBox_email.Text;
+
+            object querystr = $"select * from employee where Email = '{empl_email_now}';";
+            SqlCommand comm = new SqlCommand((string)querystr, db_Connection.GetConnection());
+            SqlDataReader read = comm.ExecuteReader();
+            read.Read();
+            object id_post = read.GetValue(1);
+            object empl_phone_now = read.GetValue(5);
+            read.Close();
+
+            object empl_post = comboBox_post.Text;
+            object NewEmail = empl_email_now;
+            object NewPhone = empl_phone_now;
+            object post_id = id_post;
+
+            if (checkBox_post.Checked)
+            {
+                string querystring1 = $"select id from post where name = '{empl_post}';";
+                SqlCommand command1 = new SqlCommand(querystring1, db_Connection.GetConnection());                                                        // Поиск ID по Post.name и проверка чекбокса с должностью
+                db_Connection.openConnection();
+                SqlDataReader reader1 = command1.ExecuteReader();
+                while (reader1.Read())
+                {
+                    post_id = int.Parse(reader1[0].ToString());
+                }
+                reader1.Close();
+            }
+            if (checkBox_email.Checked)
+            {
+                NewEmail = textBox_email.Text;                                                                                                                             // Проверка чекбокса с Email
+            }
+            if (checkBox_phone.Checked)
+            {
+                NewPhone = textBox_phone.Text;                                                                                                                             // Проверка чекбокса с Телефоном
+            }
+
+            string zaprosUpd = $"update Employee set id_post = {post_id}, phone = '{NewPhone}', email = '{NewEmail}' where Email = '{empl_email_now}';";
+            SqlCommand commanda = new SqlCommand(zaprosUpd, db_Connection.GetConnection());
+            commanda.ExecuteNonQuery();
+
+            MessageBox.Show("Вы изменили данные!", "Оповещение");
+
+            comboBox_email.Items.Clear();
+            string querystring2 = "select Employee.email from Employee where id != 1;";
+            SqlCommand command2 = new SqlCommand(querystring2, db_Connection.GetConnection());
+            SqlDataReader reader2 = command2.ExecuteReader();
+            while (reader2.Read())
+            {
+                comboBox_email.Items.Add(reader2[0].ToString());
+            }
+            reader2.Close();
         }
     }
 }

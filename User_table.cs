@@ -72,5 +72,13 @@ namespace test_DataBase
             users_Upd.Show();
             this.Show();
         }
+
+        private void dataGridView_Users_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 2 && e.Value != null)
+            {
+                e.Value = new String('*', e.Value.ToString().Length);
+            }
+        }
     }
 }

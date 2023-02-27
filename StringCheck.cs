@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace test_DataBase
 {
-    public class NumCheck
+    public class StringCheck
     {
-        public Boolean checknum(char e)
+        public Boolean StringIsValid(char str)
         {
-            if (char.IsNumber(e))
+            if (Regex.IsMatch(str.ToString(), @"\p{IsCyrillic}"))
             {
-                return true;
+                return false;
             }
-
-            return false;
-
+            return true;
         }
     }
 }

@@ -178,7 +178,7 @@
             this.main_pnl.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.main_pnl.Location = new System.Drawing.Point(411, 12);
             this.main_pnl.Name = "main_pnl";
-            this.main_pnl.Size = new System.Drawing.Size(769, 625);
+            this.main_pnl.Size = new System.Drawing.Size(778, 625);
             this.main_pnl.TabIndex = 4;
             this.main_pnl.Paint += new System.Windows.Forms.PaintEventHandler(this.main_pnl_Paint);
             // 

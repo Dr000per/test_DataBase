@@ -21,7 +21,7 @@ namespace test_DataBase
         public reg(auth auth)
         {
             InitializeComponent();
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition= FormStartPosition.CenterScreen;
             frm_auth = auth;
         }
 
@@ -69,7 +69,7 @@ namespace test_DataBase
                     if (command.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Вы успешно создали аккаунт!", "Регистрация");
-                        this.Hide();
+                        auth frm_auth = new auth();
                         frm_auth.Show();
                     }
                     else
